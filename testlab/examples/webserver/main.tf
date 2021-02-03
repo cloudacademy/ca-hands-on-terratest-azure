@@ -15,7 +15,7 @@ provider "azurerm" {
 
 #Get CloudAcademy Lab Resource Group
 data "azurerm_resource_group" "rg" {
-  name = "cal-956-2"
+  name = "REPLACEME"
 }
 
 #Create virtual network
