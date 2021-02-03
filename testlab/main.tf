@@ -57,7 +57,7 @@ resource "azurerm_linux_virtual_machine" "webserver" {
   admin_password = "P@ssw0rdP@ssw0rd"
   disable_password_authentication = false
   network_interface_ids = [
-    azurerm_network_interface.example.id,
+    azurerm_network_interface.nic.id,
   ]
 
   os_disk {
@@ -84,7 +84,7 @@ resource "azurerm_virtual_machine_extension" "cs" {
 
   settings = <<SETTINGS
     {
-        "script": "${filebase64("custom_script.sh")}"
+        "script": "${filebase64("${path.module}/custom_script.sh")}"
     }
 SETTINGS
 
